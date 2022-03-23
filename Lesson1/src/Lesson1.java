@@ -5,6 +5,7 @@ public class Lesson1 {
 
         byte x = 127;
         System.out.println(x);
+        System.out.println(x);
 
         short y = -4542;
         System.out.println(y);
