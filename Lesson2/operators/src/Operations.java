@@ -1,4 +1,4 @@
-public class Operations {
+public class Operations { // ALT + CTRL + L
     public static void main(String[] args) {
         int x1;
         int $x;
