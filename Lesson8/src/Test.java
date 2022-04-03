@@ -1,6 +1,5 @@
 public class Test {
     public static void main(String[] args) {
-        new Human();
         System.out.println(Human.count);
         System.out.println(Human.a);
         Student s1 = new Student("Hayk");
