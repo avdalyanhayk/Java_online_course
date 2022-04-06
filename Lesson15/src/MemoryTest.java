@@ -2,57 +2,42 @@ import java.util.HashSet;
 
 public class MemoryTest {
     public static void main(String[] args) {
-        int a = 8;
-        f(a);
-        System.out.println(a);
-
-        Student s1 = new Student(20, "Hayk");
-        Student s2 = new Student(20, "Hayk");
+        Student s1 = new Student("Hayk", 20);
+        Student s2 = new Student("Hayk", 20);
         System.out.println(s1 == s2);
         System.out.println(s1.equals(s2));
         System.out.println(s1.hashCode());
         System.out.println(s2.hashCode());
 
-        HashSet<Student> set = new HashSet<>();
-        set.add(s1);
-        System.out.println(set.contains(s2));
+        HashSet<Student> students = new HashSet<>();
+        students.add(s1);
+        System.out.println(students.contains(s2));
 
+        System.out.println("---------------");
+        String a = new String("Hello");
+        String b = "Hello";
+        System.out.println(a == b);
+        System.out.println(a.equals(b));
 
-        // Immutable
-        String x = new String("Barev");
-        String y = "Barev";
-        x.toLowerCase();
-        System.out.println(x);
-        System.out.println("--------------");
-        System.out.println(x == y);
-        System.out.println(x.equals(y));
-
-        String name = "Hayk";
-        String lastName = "Avdalyan";
-        String result = "Barev " + name + " " + lastName + " 2022";
-        System.out.println(result);
-
-        StringBuilder sb = new StringBuilder();
-        String s = sb.append("Barev ")
-                .append(name)
-                .append(" ")
-                .append(lastName)
-                .append(" 2022").toString();
+        // immutable
+        String s = a.toLowerCase();
         System.out.println(s);
 
-        Integer i = 128;
+        String name = "Hayk";
+        String surname = "Avdalyan";
+        String result = "barev " + name + " " + surname + " 2022";
+        System.out.println(result);
+        StringBuilder sb = new StringBuilder();
+
+        String result2 = sb.append("barev ")
+                .append(name)
+                .append(" ")
+                .append(surname)
+                .append(" 2022").toString();
+        System.out.println(result2);
+
+        Integer i = Integer.valueOf(128);
         Integer i2 = 128;
         System.out.println(i == i2);
-        System.out.println(i.equals(i2));
-
-    }
-
-    private static void g(Student s) {
-        s = null;
-    }
-
-    private static void f(int z) {
-        int b = 3;
-        z = 40;
     }
 }

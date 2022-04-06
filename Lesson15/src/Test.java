@@ -1,50 +1,38 @@
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Stack;
 
 public class Test {
     public static void main(String[] args) {
-        Stack<Integer> s = new Stack<>();
-        ArrayList<Integer> a = new ArrayList<>(Arrays.asList(4, 1, 6, 5, 47));
-        System.out.println(a);
-        for (Integer x : a) {
-            s.push(x);
-        }
-        System.out.println(s.peek());
-        a.clear();
-        while (!s.isEmpty()) {
-            a.add(s.pop());
-        }
-        System.out.println(a);
-
-        String text = "45641215da}{s54[sda]gg()}"; // {[}]
-
-        System.out.println(isCorrect(text));
+        String s = "{{}sdf(hg)[k[l]o}";
+        System.out.println(isCorrect(s));
     }
 
-    static boolean isCorrect(String t) {
+    private static boolean isCorrect(String s) {
         Stack<Character> stack = new Stack<>();
-        for (int i = 0; i < t.length(); i++) {
-            char c = t.charAt(i);
-            if (c == '(' || c == '[' || c == '{') {
-                stack.add(c);
+        for (int i = 0; i < s.length(); i++) {
+            char e = s.charAt(i);
+            if (e == '(' || e == '[' || e == '{') {
+                stack.push(e);
                 continue;
             }
-            switch (c) {
+            switch (e) {
                 case ')':
-                    if (stack.isEmpty() || stack.pop() != '(')
+                    if (stack.empty() || stack.pop() != '(') {
                         return false;
+                    }
                     break;
                 case ']':
-                    if (stack.isEmpty() || stack.pop() != '[')
+                    if (stack.empty() || stack.pop() != '[') {
                         return false;
+                    }
                     break;
                 case '}':
-                    if (stack.isEmpty() || stack.pop() != '{')
+                    if (stack.empty() || stack.pop() != '{') {
                         return false;
+                    }
                     break;
             }
         }
         return stack.isEmpty();
     }
+
 }

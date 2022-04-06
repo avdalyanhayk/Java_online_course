@@ -1,12 +1,13 @@
 import java.util.Objects;
 
 public class Student {
-    private int age;
-    private String name;
 
-    public Student(int age, String name) {
-        this.age = age;
+    private String name;
+    private int age;
+
+    public Student(String name, int age) {
         this.name = name;
+        this.age = age;
     }
 
     public String getName() {
@@ -37,6 +38,6 @@ public class Student {
 
     @Override
     public int hashCode() {
-        return Objects.hash(age, name);
+        return Objects.hash(name, age);
     }
 }
